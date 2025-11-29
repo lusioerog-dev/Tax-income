@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class scenario {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter movie language (Nepali/Hindi/English): ");
+        String language = input.nextLine();
+        System.out.print("Enter age: ");
+        int age = input.nextInt();
+        System.out.print("Student? (yes/no): ");
+        String student = input.next();
+        System.out.print("Festival discount? (yes/no): ");
+        String festival = input.next();
+        double price = 0;
+        switch(language.toLowerCase()) {
+            case "nepali": price = 300; break;
+            case "hindi": 
+            case "english": price = 350; break;
+            default: System.out.println("Invalid language"); return;
+        }
+        if (age <= 12) price *= 0.5;  
+        else if (age >= 60) price *= 0.8;  
+        if (student.equalsIgnoreCase("yes")) 
+            price *= 0.9;
+        if (festival.equalsIgnoreCase("yes")) 
+            price *= 0.85;
+        System.out.printf("Final Ticket Price: NPR %.2f\n", price);
+        input.close();
+    }
+}   
